@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pedido de Namoro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #FDF5E6;
+            font-family: Arial, Helvetica, sans-serif; 
+        }
+        h1 {
+            font-size: 36px;
+            margin-top: 50px;
+        }
+        .button {
+            font-size: 20px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        .yes {
+            background-color: #90EE90;
+        }
+        .no {
+            background-color: #FFB6C1;
+        }
+        .hidden {
+            display: none;
+        }
+        .hearts {
+            position: fixed;
+            z-index: 9999;
+            top: -10%;
+            left: -10%;
+            width: 120%;
+            height: 120%;
+        }
+        .hearts img {
+            position: absolute;
+            user-select: none;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Você quer namorar comigo?</h1>
+    <button class="button yes" onclick="handleYes()">Sim</button>
+    <button class="button no" onclick="handleNo()">Não</button>
+    <div class="response hidden"></div>
+    <div class="hearts hidden"></div>
+    <script>
+        const responseEl = document.querySelector('.response');
+        const heartsEl = document.querySelector('.hearts');
+        
+        function handleYes() {
+            responseEl.innerHTML = 'VAMOS SER FELIZES PARA SEMPRE, AGORA OLHA PRA TRÁS';
+            responseEl.classList.remove('hidden');
+            
+            heartsEl.classList.remove('hidden');
+            
+            for (let i = 0; i < 50; i++) {
+                createHeart();
+                createConfetti();
+            }
+            
+            setInterval(() => {
+                createHeart();
+                createConfetti();
+            }, 300);
+        }
+        
+        function handleNo() {
+            responseEl.innerHTML = 'Tudo bem, eu entendo 😢';
+            responseEl.classList.remove('hidden');
+        }
+        
+        function createHeart() {
+            const heart = document.createElement('img');
+            heart.setAttribute('src', 'heart_resized.png');
+            
+            heart.style.width = Math.random() * 50 + 50 + 'px';
+            
+            heart.style.top = Math.random() * -200 + 'px';
+            
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            
+            heartsEl.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 3000);
+            
+            setTimeout(() => {
+                heart.style.top = window.innerHeight + 'px';
+                heart.style.transition = 'top 3s linear';
+                
+                setTimeout(() => {
+                    heart.style.opacity = 0;
+                    heart.style.transition += ', opacity 1s linear';
+                }, 2000);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 3000);
+                
+                setTimeout(() => {
+                    heart.style.transform = `translateX(${Math.random() * 500 - 250}px)`;
+                    heart.style.transition += ', transform 3s linear';
+                }, 10);
+                
+                setTimeout(() => {
+                    heart.style.transform += ` rotate(${Math.random() * 720 - 360}deg)`;
+                    heart.style.transition += ', transform 3s linear';
+                }, 10);
+                
+                setTimeout(() => {
+                    heart.style.transform += ` scale(${Math.random() * 2 + .5})`;
+                    heart.style.transition += ', transform 3s linear';
+                }, 10);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 3000);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 3000);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 3000);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 3000);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 3000);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 3000);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 3000);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 3000);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 3000);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 3000);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 3000);
+            }, 10);
+        }
+        
+        function createConfetti() {
+            const confettiColors = ['#ff6b6b', '#ffe66d', '#48dbfb', '#1dd1a1', '#f368e0'];
+            
+            const confetti = document.createElement('div');
+            confetti.style.width = '10px';
+            confetti.style.height = '10px';
+            confetti.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+            
+            confetti.style.position = 'absolute';
+            confetti.style.top = Math.random() * -200 + 'px';
+            confetti.style.left = Math.random() * window.innerWidth + 'px';
+            
+            heartsEl.appendChild(confetti);
+            
+            setTimeout(() => {
+                confetti.remove();
+            }, 3000);
+            
+            setTimeout(() => {
+                confetti.style.top = window.innerHeight + 'px';
+                confetti.style.transition = 'top 3s linear';
+                
+                setTimeout(() => {
+                    confetti.style.opacity = 0;
+                    confetti.style.transition += ', opacity 1s linear';
+                }, 2000);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+                
+                setTimeout(() => {
+                    confetti.style.transform = `translateX(${Math.random() * 500 - 250}px)`;
+                    confetti.style.transition += ', transform 3s linear';
+                }, 10);
+                
+                setTimeout(() => {
+                    confetti.style.transform += ` rotate(${Math.random() * 720 - 360}deg)`;
+                    confetti.style.transition += ', transform 3s linear';
+                }, 10);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+            }, 10);
+        }
+    </script>
+</body>
+</html>
