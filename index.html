@@ -4,31 +4,46 @@
     <title>Pedido de Namoro</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
-            background-color: #FDF5E6;
-            font-family: Arial, Helvetica, sans-serif; 
+            background-color: #FFECF5; /* Cor de fundo rosa suave */
         }
+
         h1 {
             font-size: 36px;
             margin-top: 50px;
+            color: #F44336; /* Cor do título vermelho apaixonado */
         }
+
         .button {
             font-size: 20px;
             padding: 10px 20px;
             border-radius: 5px;
             border: none;
             cursor: pointer;
+            margin: 10px;
         }
+
         .yes {
-            background-color: #90EE90;
+            background-color: #4CAF50; /* Cor do botão Sim em verde */
+            color: white;
         }
+
         .no {
-            background-color: #FFB6C1;
+            background-color: #FF6B6B; /* Cor do botão Não em vermelho */
+            color: white;
         }
+
         .hidden {
             display: none;
         }
+
+        .response {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #F44336; /* Cor do texto de resposta vermelho apaixonado */
+        }
+
         .hearts {
             position: fixed;
             z-index: 9999;
@@ -37,6 +52,7 @@
             width: 120%;
             height: 120%;
         }
+
         .hearts img {
             position: absolute;
             user-select: none;
@@ -45,7 +61,7 @@
     </style>
 </head>
 <body>
-    <h1>Você quer namorar comigo?</h1>
+    <h1>Quer namorar comigo?</h1>
     <button class="button yes" onclick="handleYes()">Sim</button>
     <button class="button no" onclick="handleNo()">Não</button>
     <div class="response hidden"></div>
@@ -53,29 +69,29 @@
     <script>
         const responseEl = document.querySelector('.response');
         const heartsEl = document.querySelector('.hearts');
-        
+
         function handleYes() {
-            responseEl.innerHTML = '❤🥰 VAMOS SER FELIZES PARA SEMPRE, AGORA OLHA PRA TRÁS 🥰😍';
+            responseEl.innerHTML = 'VAMOS SER FELIZES PARA SEMPRE, AGORA OLHE PARA TRÁS';
             responseEl.classList.remove('hidden');
-            
+
             heartsEl.classList.remove('hidden');
-            
+
             for (let i = 0; i < 50; i++) {
                 createHeart();
                 createConfetti();
             }
-            
+
             setInterval(() => {
                 createHeart();
                 createConfetti();
             }, 300);
         }
-        
+
         function handleNo() {
             responseEl.innerHTML = 'Tudo bem, eu entendo 😢';
             responseEl.classList.remove('hidden');
         }
-        
+
         function createHeart() {
             const heart = document.createElement('img');
             heart.setAttribute('src', 'heart_resized.png');
